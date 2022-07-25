@@ -33,13 +33,13 @@
 //-----------------------------------------------------------------------------
 // Global variables
 //-----------------------------------------------------------------------------
-LPDIRECT3D9         g_pD3D = NULL;				// Используется для создания D3DDevice
-LPDIRECT3DDEVICE9   g_pd3dDevice = NULL;		// Наше устройство рендеринга
+LPDIRECT3D9         g_pD3D = NULL;		// Используется для создания D3DDevice
+LPDIRECT3DDEVICE9   g_pd3dDevice = NULL;	// Наше устройство рендеринга
 
-LPD3DXMESH          g_pMesh = NULL;				// Наш меш-объект в системной памяти (sysmem)
+LPD3DXMESH          g_pMesh = NULL;		// Наш меш-объект в системной памяти (sysmem)
 D3DMATERIAL9*       g_pMeshMaterials = NULL;	// Материалы для нашей сетки
-LPDIRECT3DTEXTURE9* g_pMeshTextures = NULL;		// Текстуры для нашего меша
-DWORD               g_dwNumMaterials = 0L;		// Количество материалов сетки
+LPDIRECT3DTEXTURE9* g_pMeshTextures = NULL;	// Текстуры для нашего меша
+DWORD               g_dwNumMaterials = 0L;	// Количество материалов сетки
 
 
 
@@ -55,12 +55,12 @@ HRESULT InitD3D( HWND hWnd )
 
     // Настройте структуру, используемую для создания D3DDevice. 
 	// Так как мы сейчас используя более сложную геометрию, создадим устройство с zbuffer.
-    D3DPRESENT_PARAMETERS d3dpp;				// Параметры
-    ZeroMemory( &d3dpp, sizeof( d3dpp ) );		// Очистить графический буфер 	
-    d3dpp.Windowed = TRUE;						// Окно
+    D3DPRESENT_PARAMETERS d3dpp;		// Параметры
+    ZeroMemory( &d3dpp, sizeof( d3dpp ) );	// Очистить графический буфер 	
+    d3dpp.Windowed = TRUE;			// Окно
     d3dpp.SwapEffect = D3DSWAPEFFECT_DISCARD;	// Эффект замены (SwapEffect) запретить
     d3dpp.BackBufferFormat = D3DFMT_UNKNOWN;	// Формат заднего буфера (BackBufferFormat/фон) - НЕИЗВЕСТНЫЙ 
-    d3dpp.EnableAutoDepthStencil = TRUE;		// Включить автоматический трафарет глубины (EnableAutoDepthStencil) - Включён
+    d3dpp.EnableAutoDepthStencil = TRUE;	// Включить автоматический трафарет глубины (EnableAutoDepthStencil) - Включён
     d3dpp.AutoDepthStencilFormat = D3DFMT_D16;	// Автоматический формат трафарета глубины (AutoDepthStencilFormat) - FMT_D16
 
     // Создать D3D-устройство
@@ -207,7 +207,7 @@ VOID SetupMatrices()
     // точка, на которую нужно смотреть, и направление, по которому путь вверх. 
     // Здесь мы устанавливаем смотрим на пять единиц назад по оси Z и на три единицы вверх, 
     // смотрим на начало координат и определить «вверх» в направлении оси y.    
-	D3DXVECTOR3 vEyePt( 0.0f, 3.0f,-5.0f );
+    D3DXVECTOR3 vEyePt( 0.0f, 3.0f,-5.0f );
     D3DXVECTOR3 vLookatPt( 0.0f, 0.0f, 0.0f );
     D3DXVECTOR3 vUpVec( 0.0f, 1.0f, 0.0f );
     D3DXMATRIXA16 matView;
@@ -222,7 +222,7 @@ VOID SetupMatrices()
     // (определяемые в геометрия каких расстояний больше не должна отображаться).
     D3DXMATRIXA16 matProj;
     D3DXMatrixPerspectiveFovLH( &matProj, D3DX_PI / 4, 1.0f, 1.0f, 100.0f );
-    g_pd3dDevice->SetTransform( D3DTS_PROJECTION, &matProj );
+    				g_pd3dDevice->SetTransform( D3DTS_PROJECTION, &matProj );
 }
 
 
