@@ -54,7 +54,7 @@ HRESULT InitD3D( HWND hWnd )
         return E_FAIL;												// Error!						
 
     // Настройте структуру, используемую для создания D3DDevice. 
-	// Так как мы сейчас используя более сложную геометрию, создадим устройство с zbuffer.
+    // Так как мы сейчас используя более сложную геометрию, создадим устройство с zbuffer.
     D3DPRESENT_PARAMETERS d3dpp;		// Параметры
     ZeroMemory( &d3dpp, sizeof( d3dpp ) );	// Очистить графический буфер 	
     d3dpp.Windowed = TRUE;			// Окно
